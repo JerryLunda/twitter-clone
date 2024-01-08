@@ -1,9 +1,12 @@
 import '../css/App.css'
+import Container from './Container'
 
 export default function App() {
   return (
-    <h1 className="text-5xl font-bold underline">
-      Hello world!
-    </h1>
+    <>
+      <Container>Container1</Container>
+      <Container>Container2</Container>
+      <Container>Container3</Container>
+    </>
   )
 }
