@@ -12,6 +12,7 @@ import "../css/App.css";
 
 import SideBar from "./SideBar";
 import Twit from "./Twits"
+import Trend from "./Trend"
 
 const images = [media, gif, poll, emoji, schedule]
 
@@ -19,7 +20,9 @@ export default function App() {
   return (
     <div className="flex">
       <div className="w-4/12 flex justify-end">
+        <div className="w-8/12 relative">
         <SideBar></SideBar>
+        </div>
       </div>
       <div className="w-4/12 border-solid border-x-2 border-gray-800 ">
         <div className="flex justify-between px-3 py-2 items-center border-solid border-b-2 border-gray-800">
@@ -32,7 +35,7 @@ export default function App() {
             <textarea id="" cols="30" placeholder="What's happening?" className="mt-2 ms-2 w-11/12 bg-black text-gray-900"></textarea>
             <div className="flex justify-between   w-full px-5">
               <span className="flex justify-between gap-3">{images.map((image)=>(<img src={image} alt={image} />))}</span>
-              <button type="button" className="bg-[#1D9BF0] py-1 w-20 rounded-3xl">Tweet</button>
+              <button type="button" className="bg-[#1D9BF0] py-1 w-16 rounded-3xl">Tweet</button>
             </div>
           </div>
         </div>
@@ -43,8 +46,10 @@ export default function App() {
         ))}
         </div>
       </div>
-      <div className="w-4/12 fixed">
-       
+      <div className="w-4/12 flex pl-5 py-2">
+        <div className="w-8/12 relative">
+          <Trend></Trend>
+        </div>
       </div>
     </div>
   );

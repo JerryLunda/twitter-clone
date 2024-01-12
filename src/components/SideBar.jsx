@@ -24,7 +24,7 @@ const groupeIcons = [
 
 export default function SideBar() {
     return(
-        <div className=" w-6/12 ">
+        <div className="w-2/12 fixed ">
             {groupeIcons.map((item)=>(<GroupeIcon source={item["icon"]} text={item["label"]}></GroupeIcon>))}
             <button type="button" className="bg-[#1D9BF0] py-2 m-3 w-10/12 rounded-3xl">Tweet</button>
         </div>
