@@ -1,15 +1,11 @@
-import search from "../assets/search.svg"
+import point from "../assets/point.svg"
 
-export default function Trend() {
+export default function Trend({trend}) {
     return(
-        <div className="fixed flex flex-col gap-2">
-        <label class="fixed ">
-            <span class="sr-only">Search</span>
-            <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-              <img src={search} class=""/>
-            </span>
-            <input class=" placeholder: text-gray-300/45 block bg-[#202327] w-full border  rounded-2xl py-1 pl-9 pr-3 " placeholder="Search Twitter" type="text" name="search"/>
-          </label>
+        <div className="py-3 w-11/12 flex flex-col">
+            <div className="flex justify-between w-11/12 "><span className="font-extralight text-[#6E767D]">trend.title</span><img src={point} alt="" /></div>
+            <p className="font-bold">{"#"+trend.author}</p>
+            <span className="font-extralight text-[#6E767D]">{trend.tweets} Tweets</span>
         </div>
     )
 }

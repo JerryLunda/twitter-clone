@@ -1,4 +1,4 @@
-const tweetData = [
+const TWEET_DATAS = [
     {
         "author_avatar": "https://picsum.photos/200?random=1604299903000",
         "source": "Twitter",
@@ -107,7 +107,7 @@ const tweetData = [
         "author_avatar": "https://picsum.photos/200?random=1548956601000",
         "source": "Samsung",
         "date": 1601996447000,
-        "favorites": 58201,
+        "favorites": 582,
         "id": "1313494418314457090",
         "isVerified": true,
         "replies": "0",
@@ -117,4 +117,4 @@ const tweetData = [
     }
 ]
 
-export default tweetData
+export default TWEET_DATAS
