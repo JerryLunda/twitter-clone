@@ -3,6 +3,7 @@ import retweet from "../assets/retweet.svg"
 import react from "../assets/react.svg"
 import share from "../assets/share.svg"
 import groupok from "../assets/groupok.svg"
+import LIKED from "../data/likes"
 
 import { useState } from "react"
 
@@ -12,8 +13,22 @@ function showInteraction(nbreInteraction) {
 
 export default function Tweet({item}) {
     const [like, setLike] = useState(item.favorites)
+    const [color, setColor] = useState("https://img.icons8.com/material-outlined/24/737373/filled-like.png")
 
-    const liker = ()=>(setLike(parseInt(like) + 1));
+    const liker = ()=>{
+        if (LIKED[0]) {
+            setLike(parseInt(like)-1); 
+            LIKED[0] = false;
+            setColor("https://img.icons8.com/material-outlined/24/737373/filled-like.png")
+            
+        } else {
+            setLike(parseInt(like)+1);
+            LIKED[0] = true;
+            setColor("https://img.icons8.com/color/48/filled-like.png" )
+           
+        }
+            
+    }
     return(
         <div className="flex justify-center pl-2 border-y border-gray-800 mr-2">
             <div className="py-2 w-12 mx-2"><img src={item.author_avatar} alt={item.source} className="size-10 rounded-full"/></div>
@@ -29,7 +44,7 @@ export default function Tweet({item}) {
                        
                     <div className="flex gap-3 "><img src={comment}/> {showInteraction(item.replies)}</div> 
                     <div className="flex gap-3 "><img src={retweet}/> {showInteraction(item.retweets)}</div> 
-                    <div className="flex gap-3 "><img src={react} onClick={liker}/> {showInteraction(like)}</div> 
+                    <div className="flex gap-3 "><img src={color} className="w-5" onClick={liker}/> {showInteraction(like)}</div> 
                     <div className="flex gap-3 "><img src={share}/> </div>
                     
                 </div>
