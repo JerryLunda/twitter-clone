@@ -1,18 +1,28 @@
+import axios from "axios";
 import Tweet from "../components/Tweet";
 import Trends from "../components/Trends";
 import Header from "../components/Header";
-import TWEET_DATAS from "../data/tweets"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function Home() {
-    const [TWEETS, setTweet] = useState(TWEET_DATAS)
+const baseURL = "https://my-json-server.typicode.com/amare53/twiterdb/posts";
 
-    return(
-        <div className="w-12/12 flex">
+export default function App() {
+  const [tweet, setPost] = useState(null);
+
+  useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      setPost(response.data);
+    });
+  }, []);
+
+  if (!tweet) return null;
+
+  return (
+    <div className="w-12/12 flex">
             <div className="w-full flex-col  md:border-solid md:border-x-2 md:border-gray-800 md:w-9/12 md:justify-center lg:w-6/12 ">
                 <Header></Header>
                 <div>
-                {TWEETS.map((data)=>(<Tweet item={data}/>))}
+                {tweet.map((data)=>(<Tweet item={data} key={data.id}/>))}
                 </div>
                 
             </div>
@@ -23,5 +33,5 @@ export default function Home() {
                 </div>
             </div>
         </div>
-    )
+  );
 }

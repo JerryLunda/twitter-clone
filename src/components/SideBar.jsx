@@ -27,7 +27,7 @@ export default function SideBar() {
     return(
         <div className="flex flex-col fixed w-4/12 items-center">
             {ICON_LABEL.map((item)=>(<IconLabel source={item["icon"]} text={item["label"]}/>))}
-            <NavLink to={"twits"} className="bg-[#1D9BF0] p-2 my-2 mr-3 w-4/12 rounded-3xl hidden lg:block">Tweet</NavLink>
+            <NavLink to={"twits"} className=" bg-[#1D9BF0] my-2 mr-3 w-4/12 rounded-3xl hidden lg:flex justify-center"><p className="my-3 ">Tweet</p></NavLink>
         </div>
     )       
 }

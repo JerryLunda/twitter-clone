@@ -13,8 +13,7 @@ import Tweets from "../pages/More";
 
 
 import ErrorPage from "../pages/ErrorPage";
-import { createBrowserRouter, RouterProvider, NavLink } from "react-router-dom";
-import Tweet from "./Tweet";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 
 
